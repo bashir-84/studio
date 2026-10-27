@@ -20,9 +20,11 @@ function HomeMotionHero({locale}:{locale:Locale}){
   const orbitRotate=useTransform(scrollYProgress,[0,1],[0,105]);
   const coreScale=useTransform(scrollYProgress,[0,.8],[1,.74]);
   return <section className="motion-hero motion-hero-v2 home-motion-hero" id="top" ref={ref}>
+    <div className="home-hero-art" aria-hidden="true">
     <motion.div className="hero-system-orbit" style={{rotate:orbitRotate}}><i/><i/><i/><i/></motion.div>
     <motion.div className="hero-system-core" style={{scale:coreScale}}><span>01</span><b>LAYER<br/>SYSTEM</b><small>Strategy · Identity<br/>Motion · Content</small></motion.div>
     <i className="hero-part part-a">CONTENT</i><i className="hero-part part-b">MOTION</i><i className="hero-part part-c">IDENTITY</i><i className="hero-part part-d">STORY</i>
+    </div>
     <motion.div className="motion-hero-type-v2" style={{y:titleY}}><span>{en?"CREATIVE SYSTEMS FOR LONG-TERM WORK":"سیستم‌های خلاق برای همکاری‌های ماندگار"}</span><h1>{en?<>One clear system.<br/><em>Many moving parts.</em></>:<>یک سیستم روشن.<br/><em>لایه‌هایی در حرکت.</em></>}</h1><p>{en?"Layer Studio connects strategy, content, identity, and motion into one living system—built for work that needs to keep growing.":"در لِیِر، استراتژی، محتوا، هویت بصری و موشن به هم پیوند می‌خورند؛ در قالب سیستمی منسجم برای پروژه‌هایی که قرار است رشد کنند."}</p><a className="home-hero-link" href={localePath(locale,"/work")}>{en?"Explore selected work ↗":"مشاهده پروژه‌های منتخب ←"}</a></motion.div>
   </section>;
 }
@@ -71,7 +73,7 @@ function HomeOrbitFooter({locale}:{locale:Locale}){
 export function HomePage({ locale }: { locale: Locale }) {
   const en = locale === "en";
   return (
-    <main className={en ? "locale-en" : "locale-fa"} lang={locale} dir={en ? "ltr" : "rtl"}>
+    <main className={`studio-home ${en ? "locale-en" : "locale-fa"}`} lang={locale} dir={en ? "ltr" : "rtl"}>
       <Header locale={locale}/>
       <HomeProgressNav locale={locale}/>
       <HomeMotionHero locale={locale}/>

@@ -4,6 +4,7 @@ import "./globals.css";
 import "./refinement.css";
 import "./motion.css";
 import "./persian.css";
+import "./home-mobile.css";
 
 export const metadata: Metadata = {
   title: "Layer Studio | Content Systems & Creative Production",
